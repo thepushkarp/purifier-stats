@@ -4,3 +4,5 @@ __pycache__/
 .ruff_cache/
 dist/
 *.png
+!/site/
+!/site/icon.png

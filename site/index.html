@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>purifier-stats — Your air, in plain text</title>
+    <meta
+      name="description"
+      content="Read a Xiaomi Smart Air Purifier 4 Lite over local Wi-Fi with a Python library, command-line tool, or coding agent skill."
+    />
+    <link rel="canonical" href="https://purifier-stats.thepushkarp.com/" />
+    <meta
+      property="og:title"
+      content="purifier-stats — Your air, in plain text"
+    />
+    <meta
+      property="og:description"
+      content="Local Wi-Fi readings from a Xiaomi Smart Air Purifier 4 Lite, in Python or your terminal."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://purifier-stats.thepushkarp.com/" />
+    <meta
+      property="og:image"
+      content="https://purifier-stats.thepushkarp.com/social.webp"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#f7f9fa" />
+    <link rel="icon" href="/icon.png" />
+    <link
+      rel="preload"
+      href="/fonts/barlow-semi-condensed-latin-600-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/page.js" defer></script>
+  </head>
+  <body>
+    <a href="#main" class="skip">Skip to content</a>
+    <header class="wrap">
+      <a href="#main" class="wordmark"
+        ><img src="/icon.png" alt="" width="32" height="32" />purifier-stats</a
+      >
+      <nav aria-label="Main">
+        <a href="#readings">Readings</a><a href="#setup">Setup</a
+        ><a
+          class="external"
+          href="https://github.com/thepushkarp/purifier-stats"
+          >GitHub <span aria-hidden="true">↗</span></a
+        >
+      </nav>
+    </header>
+    <main id="main">
+      <section class="hero wrap" aria-labelledby="intro-title">
+        <div class="intro">
+          <h1 id="intro-title">Your air,<br />in plain text.</h1>
+          <p>
+            Read your Xiaomi Smart Air Purifier 4 Lite over local Wi-Fi. Get its
+            sensor readings in Python, in your terminal, or through a coding
+            agent.
+          </p>
+          <div class="actions">
+            <a class="primary" href="#setup"
+              >Get started <span aria-hidden="true">↓</span></a
+            ><a class="text-link" href="#readings">See a sample</a>
+          </div>
+        </div>
+        <figure class="product">
+          <img
+            src="/purifier.webp"
+            alt="Illustration of a white tower air purifier with a circular display and perforated air intake"
+            fetchpriority="high"
+            width="800"
+            height="1000"
+          />
+          <figcaption>Smart Air Purifier 4 Lite</figcaption>
+        </figure>
+      </section>
+      <section class="readings" id="readings" aria-labelledby="readings-title">
+        <div class="wrap readings-grid">
+          <div>
+            <h2 id="readings-title">Inside a reading</h2>
+            <p>Select a field to see its value in the sample response.</p>
+            <div class="fields" role="group" aria-label="Sample fields">
+              <button
+                type="button"
+                data-field="pm2_5_ug_m3"
+                aria-pressed="true"
+              >
+                PM2.5</button
+              ><button
+                type="button"
+                data-field="temperature_c"
+                aria-pressed="false"
+              >
+                Temperature</button
+              ><button
+                type="button"
+                data-field="humidity_percent"
+                aria-pressed="false"
+              >
+                Humidity</button
+              ><button
+                type="button"
+                data-field="filter_life_percent"
+                aria-pressed="false"
+              >
+                Filter life</button
+              ><button type="button" data-field="power" aria-pressed="false">
+                Power</button
+              ><button type="button" data-field="mode" aria-pressed="false">
+                Mode
+              </button>
+            </div>
+            <p class="explanation" aria-live="polite">
+              12 µg/m³ of fine airborne particles.
+            </p>
+          </div>
+          <div class="terminal">
+            <div class="terminal-head">
+              <span>Terminal</span><span>Sample output</span>
+            </div>
+            <pre><code><span class="prompt">$</span> purifier-stats
+{
+  "ip": "192.0.2.10",
+  "model": "zhimi.airp.rmb1",
+<span data-line="power">  "power": "on",</span>
+<span data-line="mode">  "mode": "Auto",</span>
+<span data-line="pm2_5_ug_m3" class="chosen">  "pm2_5_ug_m3": 12,</span>
+<span data-line="temperature_c">  "temperature_c": 22.5,</span>
+<span data-line="humidity_percent">  "humidity_percent": 45,</span>
+<span data-line="filter_life_percent">  "filter_life_percent": 84</span>
+}</code></pre>
+          </div>
+        </div>
+      </section>
+      <section id="setup" class="setup wrap" aria-labelledby="setup-title">
+        <h2 id="setup-title">Get started</h2>
+        <p>
+          Install on a computer on the purifier’s Wi-Fi. During private testing,
+          your GitHub account needs repository access.
+        </p>
+        <div class="guide">
+          <section>
+            <h3>Command line</h3>
+            <p>
+              Install with uv, choose your Xiaomi Home region, then scan the QR
+              code to pair. Future reads use the token in your OS credential
+              store.
+            </p>
+            <div class="snippet">
+              <button
+                type="button"
+                class="copy"
+                aria-label="Copy command line setup"
+              >
+                Copy
+              </button>
+              <pre><code>gh repo clone thepushkarp/purifier-stats
+cd purifier-stats
+uv tool install --python 3.12 .
+purifier-stats setup
+purifier-stats</code></pre>
+            </div>
+          </section>
+          <section>
+            <h3>Python</h3>
+            <p>
+              Run <code>pip install .</code> in a virtual environment from the
+              checkout. Read the same fields from the paired device.
+            </p>
+            <div class="snippet">
+              <button
+                type="button"
+                class="copy"
+                aria-label="Copy Python example"
+              >
+                Copy
+              </button>
+              <pre><code>from purifier_stats import Purifier
+
+readings = Purifier.paired().stats()
+print(readings["pm2_5_ug_m3"])</code></pre>
+            </div>
+          </section>
+          <section>
+            <h3>Agent skill</h3>
+            <p>
+              Install the skill directly from GitHub and select your coding
+              agent. It can guide pairing and read the purifier on request.
+            </p>
+            <div class="snippet">
+              <button
+                type="button"
+                class="copy"
+                aria-label="Copy skill installation"
+              >
+                Copy
+              </button>
+              <pre><code>npx skills add thepushkarp/purifier-stats --skill purifier-stats</code></pre>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <a class="wordmark" href="#main"
+          ><img
+            src="/icon.png"
+            alt=""
+            width="26"
+            height="26"
+          />purifier-stats</a
+        ><a href="https://thepushkarp.com"
+          >thepushkarp.com <span aria-hidden="true">↗</span></a
+        >
+      </div>
+    </footer>
+  </body>
+</html>

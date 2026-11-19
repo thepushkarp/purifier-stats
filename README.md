@@ -2,6 +2,8 @@
 
 Read PM2.5 (µg/m³), temperature (°C), relative humidity (%), remaining filter life (%), power, and mode from a Xiaomi Smart Air Purifier 4 Lite on your Wi-Fi. Supports `zhimi.airp.rmb1` and `zhimi.airpurifier.rma1`.
 
+[Website and interactive sample](https://purifier-stats.thepushkarp.com)
+
 ## Install and pair
 
 Requires Python 3.10+ and an OS credential store for saved pairing. From this checkout:
@@ -30,7 +32,11 @@ With your own credentials, use `Purifier(ip=ip, token=token, model=model).stats(
 
 ## Agent skill
 
-From the checkout, run `npx skills add . --skill purifier-stats` and select your agent. The [skill](skills/purifier-stats/SKILL.md) covers pairing, local QR handoff, and reading stats.
+Install the [agent skill](skills/purifier-stats/SKILL.md) directly from GitHub with the [skills.sh CLI](https://skills.sh/). Select your agent when prompted. While the repository is private, your Git client needs read access.
+
+```sh
+npx skills add thepushkarp/purifier-stats --skill purifier-stats
+```
 
 ## Releases
 

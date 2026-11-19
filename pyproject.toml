@@ -23,6 +23,7 @@ dependencies = [
 purifier-stats = "purifier_stats.cli:main"
 
 [project.urls]
+Homepage = "https://purifier-stats.thepushkarp.com"
 Source = "https://github.com/thepushkarp/purifier-stats"
 
 [tool.hatch.build.targets.sdist]
