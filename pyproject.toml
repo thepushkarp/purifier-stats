@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "purifier-stats"
+version = "0.1.0"
+description = "Read Xiaomi Smart Air Purifier 4 Lite sensors over Wi-Fi."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+  "keyring>=25,<26",
+  "micloud==0.6",
+  "python-miio>=0.5.12,<0.6",
+  "qrcode[pil]>=8,<9",
+  "questionary>=2,<3",
+  "requests>=2.32,<3",
+]
+
+[project.scripts]
+purifier-stats = "purifier_stats.cli:main"
+
+[project.urls]
+Source = "https://github.com/thepushkarp/purifier-stats"
+
+[tool.hatch.build.targets.sdist]
+include = ["/src", "/tests", "/skills", "/README.md", "/LICENSE", "/pyproject.toml"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/purifier_stats"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"skills/purifier-stats/SKILL.md" = "purifier_stats/skills/purifier-stats/SKILL.md"
