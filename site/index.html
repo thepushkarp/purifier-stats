@@ -138,8 +138,7 @@
       <section id="setup" class="setup wrap" aria-labelledby="setup-title">
         <h2 id="setup-title">Get started</h2>
         <p>
-          Install on a computer on the purifier’s Wi-Fi. During private testing,
-          your GitHub account needs repository access.
+          Install on a computer connected to the purifier’s Wi-Fi.
         </p>
         <div class="guide">
           <section>
@@ -157,9 +156,7 @@
               >
                 Copy
               </button>
-              <pre><code>gh repo clone thepushkarp/purifier-stats
-cd purifier-stats
-uv tool install --python 3.12 .
+              <pre><code>uv tool install --python 3.12 purifier-stats
 purifier-stats setup
 purifier-stats</code></pre>
             </div>
@@ -167,8 +164,7 @@ purifier-stats</code></pre>
           <section>
             <h3>Python</h3>
             <p>
-              Run <code>pip install .</code> in a virtual environment from the
-              checkout. Read the same fields from the paired device.
+              Run <code>pip install purifier-stats</code> in a virtual environment. Read the same fields from the paired device.
             </p>
             <div class="snippet">
               <button
