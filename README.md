@@ -1,6 +1,8 @@
 # purifier-stats
 
-Read PM2.5 (µg/m³), temperature (°C), relative humidity (%), remaining filter life (%), power, and mode from a Xiaomi Smart Air Purifier 4 Lite on your Wi-Fi. Supports `zhimi.airp.rmb1` and `zhimi.airpurifier.rma1`.
+Read PM2.5 (µg/m³), temperature (°C), relative humidity (%), remaining filter life (%), power, and mode from a Xiaomi Smart Air Purifier 4 Lite on your Wi-Fi.
+
+Hardware-tested on `zhimi.airp.rmb1`. The driver also accepts `zhimi.airpurifier.rma1`, which still needs hardware verification.
 
 [Website and interactive sample](https://purifier-stats.thepushkarp.com)
 
